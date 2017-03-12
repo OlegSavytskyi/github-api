@@ -6,8 +6,8 @@ app.get('/test.html', function (req, res) {
   res.send('Hello World!');
 }); 
 
-app.post('/api/test2.html', function (req, res) {
-  res.send('Hello World2!');
+app.get('/auth', function (req, res) {
+  res.send();
 });
  
 app.get('/', function(request, response) {

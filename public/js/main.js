@@ -17,6 +17,25 @@
 	});	
 	
 	/**
+	 * Close block Issue.
+	 */
+	function signIn (){
+		$(".signin").on('click', function(){
+			console.log('test SignIn');
+			$.get('https://github.com/login/oauth/authorize?client_id=6debf385832bd698f1d1',
+				function(data){
+				if (data.success) {
+                $('#result').html(data.success.msg);
+				} else {
+                $('#result').html(data.error.msg);
+				}
+			}, "json");
+			return false;
+		});	
+	};
+	signIn();
+	
+	/**
 	 * Show issues of the chosen project(repository).
 	 * @param {string} userName.
 	 */
@@ -25,7 +44,7 @@
 			$(".blockIssue").remove();
 			var $this = $(this);
 			var $elementRepos=$this.text();
-			$(".nojs").prepend("<div class='blockIssue'><p>" + userName + " > " + $elementRepos + " > issue: " + "</p><div title='close' class='blockIssueClose'>x</div><ul class='issue'></ul></div>")
+			$(".nojs").prepend("<div class='blockIssue'><p>" + userName + " > " + $elementRepos + " > issue: " + "</p><div title='close' class='blockIssueClose'>X</div><ul class='issue'></ul></div>")
 			var linkIssue = "https://api.github.com/repos/";
 			$.getJSON(linkIssue + userName + '/' + $elementRepos +'/issues', function(data, status, xhr){
 				data.forEach (
@@ -40,7 +59,6 @@
 
 	/**
 	 * Show tooltip on the mouse over event for the chosen repository.
-	 * @param {string} userName.
 	 */
 	function handleTooltip (){
 		$(".getrepos").on('mouseover', 'li' , (function(){
@@ -49,7 +67,7 @@
 	}
 
 	/**
-	 * Dellete old repos of the chosen project(repository).
+	 * Delete old repos of the chosen project(repository).
 	 */
 	function delOldRepos (){
 		var $oldRepos = $(".getrepos>li");
