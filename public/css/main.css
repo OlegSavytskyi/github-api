@@ -1,0 +1,51 @@
+
+body {
+	padding: 20px;
+}
+
+.blockIssue {
+	width: 60%;
+	height: auto;
+	padding: 10px;
+	border-radius: 20px;
+	background: #BBBBBB;
+	z-index: 1;
+	position: absolute;
+    margin-left: 20%;
+    margin-top: 10%;
+}
+
+.blockIssue > p {
+	font-weight: 900;
+}
+
+.blockIssueClose {
+    position: inherit;
+    margin-top: -85px;
+    width: 20px;
+    height: 20px;
+    background-color: #BBBBBB;
+    text-align: center;
+    border-radius: 5px;
+    margin-left: 100%;
+	cursor:pointer;
+}
+
+.listRepos {
+	cursor:pointer;
+}
+
+.getrepos {
+    margin-top: 20px;
+}
+
+.getrepos > li {
+	
+	width: 200px;
+	margin-left: 10px;
+	margin-bottom: 20px;
+	background-color: #BBBBBB;
+	padding: 3px 0 3px 20px ;
+	
+}
+

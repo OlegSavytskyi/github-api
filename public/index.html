@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>tryCatch</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="./css/main.css" />
+	<!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body class="nojs">
+	<section id="fallback">
+		<div class="test"><div>
+			<h2>Check user's repositories </h2>
+			<!-- <form method="GET" action="https://api.bring.com/pickuppoint/api/pickuppoint/DK/postalCode/1635.json"> -->
+				<input class="getcod" type="text" name="url" value="atom" placeholder="Please enter User GitHub" title="For example: 1635" required pattern="[0-9]{4}"/>
+				<input class="getjson" type="submit" formtarget="_blank" value="GetRepos"/>
+			<!-- </form> -->
+			<h1 class="hide">list of user's repositories:</h1>
+			<ul class="getrepos">
+			
+			</ul>
+		
+
+	</section>
+	<script src="./js/main.js"></script>
+</body>
+</html>
+<!-- required pattern="[0-9]{4}"-->
