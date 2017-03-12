@@ -5,6 +5,10 @@ var app = express();
 app.get('/test.html', function (req, res) {
   res.send('Hello World!');
 }); 
+
+app.post('/api/test2.html', function (req, res) {
+  res.send('Hello World2!');
+});
  
 app.get('/', function(request, response) {
     response.sendfile(__dirname + '/public/index.html');
