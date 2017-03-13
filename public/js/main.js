@@ -5,7 +5,8 @@
 		delOldRepos();
 		var link = "https://api.github.com/users/";
 		var userName = $(".getcod").val();
-		$.getJSON(link + userName + '/repos', function(data, status, xhr){
+		if (userName !==''){
+			$.getJSON(link + userName + '/repos', function(data, status, xhr){
 			$(".hide").show();
 			data.forEach (
 				function (val){
@@ -14,7 +15,12 @@
 			 );
 			handleTooltip();
 			handleIssueClick(userName);
-		});
+		}).fail(function(){
+				alert('You entered wrong username for GitHub!');
+			});
+		} else {
+			alert('Please enter username for GitHub!');
+		}
 	});	
 	
 	/**
