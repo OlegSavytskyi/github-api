@@ -1,4 +1,5 @@
 (function() {
+	 signIn();
 	 $(".hide").hide();
 	 $(".getjson").on('click', function(){
 		delOldRepos();
@@ -17,23 +18,22 @@
 	});	
 	
 	/**
-	 * Close block Issue.
+	 * Sign in with GitHub.
 	 */
 	function signIn (){
 		$(".signin").on('click', function(){
-			console.log('test SignIn');
-			$.get('https://github.com/login/oauth/authorize?client_id=6debf385832bd698f1d1',
+			alert('Sorry, this function is under development!');
+			/* $.get('https://github.com/login/oauth/authorize?client_id=6debf385832bd698f1d1',
 				function(data){
 				if (data.success) {
-                $('#result').html(data.success.msg);
+					console.log('all ok');
 				} else {
-                $('#result').html(data.error.msg);
+					console.log('error');
 				}
 			}, "json");
-			return false;
+			return false; */
 		});	
 	};
-	signIn();
 	
 	/**
 	 * Show issues of the chosen project(repository).
@@ -85,65 +85,3 @@
 		});	
 	};
 })();
-
-	
-/* 
-	
-var auth = btoa('OlegSavytskyi:Test123');
-jQuery.ajax({
-	type        : 'GET', 
-	url         : 'https://api.github.com/authorizations', 
-	headers: { 
-		"Authorization": "Basic " + auth 
-	},
-	success : function(data) {
-		console.log(data);
-		alert("Done!");
-	}
-	
-});
-
-	
-var auth = btoa('OlegSavytskyi:Test123');
-jQuery.ajax({
-	type: 'POST', 
-	url: 'https://api.github.com/repos/OlegSavytskyi/github-api/issues/1/comments', 
-	data: 	'{"body": "Hello!"}',
-	headers: { 
-		"Authorization": "Basic " + auth 
-	},
-	success : function(data) {
-		console.log(data);
-		alert("Done!");
-	}
-	
-});
-
-
-
-
-
-
-	
-jQuery.ajax ({ 
-	url: "https://api.github.com/authorizations", 
-	data: {"body": "Me too"},
-	beforeSend: function(xhr) { xhr.setRequestHeader("Authorization", "Basic " + btoa('OlegSavytskyi:Gjknfdf23')) },
-	succes: function(val){ alert(val)}
-});
-
-	
-	var auth = btoa('test:test');
-$.ajax({
-    type: 'GET',
-    url: 'http://example.com',
-    headers: {
-        "Authorization": "Basic " + auth
-    },
-    success : function(data) {
-    },
-	
-
-});
-	
-	 */

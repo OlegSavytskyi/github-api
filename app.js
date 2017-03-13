@@ -8,6 +8,7 @@ app.get('/test.html', function (req, res) {
 
 app.get('/auth', function (req, res) {
   res.send();
+  Console.log(req);
 });
  
 app.get('/', function(request, response) {
