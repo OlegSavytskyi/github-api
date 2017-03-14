@@ -1,8 +1,9 @@
 var express = require('express');
-var githubAuth = require( "../../lib/oath" );
+//var githubAuth = require( "../../lib/oath" );
 var port = process.env.PORT || 5000;
 var app = express();
 
+/*
 app.use( express.cookieParser() );
 app.use( express.cookieSession({
     secret: "your secret goes here"
@@ -40,7 +41,7 @@ app.get( "/optional", function( request, response ) {
 });
 
 
-/* app.get('/test.html', function (req, res) {
+ app.get('/test.html', function (req, res) {
   res.send('Hello World!');
 }); 
 
