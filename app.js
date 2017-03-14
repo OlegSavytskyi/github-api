@@ -10,8 +10,8 @@ app.use( express.cookieSession({
 
 // Initialize the GitHub OAuth client 
 var gha = githubAuth.createClient({
-    id: "your client id",
-    secret: "your client secret"
+    id: "6debf385832bd698f1d1",
+    secret: "7a098cf4de2e6fea12f70a16f1388061c7c22ae9"
 });
  
 // Add the route for the GitHub authorization callback 
