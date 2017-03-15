@@ -12,7 +12,7 @@ var callbackUrl = "/route/to/https://github-api-v2.herokuapp.com/auth";
 
 var app = express();
 
-
+/* 
 app.use( express.cookieParser() );
 app.use( express.cookieSession({
 	secret: "your secret goes here"
@@ -57,13 +57,13 @@ app.get( "/optional", function( request, response ) {
 });
 
 // Start listening for requests
-app.listen( port );
+//app.listen( port );
 
 
-
+ */
  
-/* app.get('/', function(request, response) {
+app.get('/', function(request, response) {
     response.sendfile(__dirname + '/public/index.html');
 }).configure(function() {
     app.use('/', express.static(__dirname + '/public/'));
-}).listen(port); */
+}).listen(port);
