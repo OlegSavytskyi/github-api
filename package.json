@@ -10,6 +10,7 @@
   "author": "Aditya Bansod (@adityabansod, http://www.adityabansod.net)",
   "license": "MIT",
   "dependencies": {
+    "connect-oauth-github": "^0.1.0",
     "express": "~3.4.7"
   },
   "engines": {
