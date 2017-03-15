@@ -1,6 +1,6 @@
 var express = require('express');
 var githubAuth = require( "../../lib/oath" );
-var githubAuth = require( "../../index" );
+
 
 var port = process.env.PORT || 5000;
 
