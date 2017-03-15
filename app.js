@@ -6,7 +6,7 @@ var port = process.env.PORT || 5000;
 
 var clientId = "6debf385832bd698f1d1";
 var clientSecret = "7a098cf4de2e6fea12f70a16f1388061c7c22ae9";
-var callbackUrl = "/route/to/https://github-api-v2.herokuapp.com/auth";
+var callbackUrl = "https://github-api-v2.herokuapp.com/auth";
 //var port = 5000;
 
 
@@ -60,10 +60,13 @@ app.get( "/optional", function( request, response ) {
 //app.listen( port );
 
 
- */
+ 
  
 app.get('/', function(request, response) {
     response.sendfile(__dirname + '/public/index.html');
 }).configure(function() {
-    app.use('/', express.static(__dirname + '/public/'));
+
+*/
+   
+ app.use('/', express.static(__dirname + '/public/'));
 }).listen(port);
