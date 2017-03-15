@@ -60,13 +60,8 @@ app.get( "/optional", function( request, response ) {
 //app.listen( port );
 
 
+  */
  
- 
-app.get('/', function(request, response) {
-    response.sendfile(__dirname + '/public/index.html');
-}).configure(function() {
-
-*/
-   
+app.configure(function() {
  app.use('/', express.static(__dirname + '/public/'));
 }).listen(port);
