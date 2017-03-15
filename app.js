@@ -1,5 +1,5 @@
 var express = require('express');
-var githubAuth = require( "../../lib/oath" );
+//var githubAuth = require( "../../lib/oath" );
 
 
 var port = process.env.PORT || 5000;
