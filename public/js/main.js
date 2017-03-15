@@ -28,8 +28,8 @@
 	 */
 	function signIn (){
 		$(".signin").on('click', function(){
-			//alert('Sorry, this function is under development!');
-			 $.get('https://github.com/login/oauth/authorize?client_id=6debf385832bd698f1d1',
+			alert('Sorry, this function is under development!');
+			/* $.get('https://github.com/login/oauth/authorize?client_id=6debf385832bd698f1d1',
 				function(data){
 				if (data.success) {
 					console.log('all ok');
@@ -37,7 +37,7 @@
 					console.log('error');
 				}
 			}, "json");
-			return false; 
+			return false; */
 		});	
 	};
 	
