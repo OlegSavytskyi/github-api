@@ -24,6 +24,8 @@ var gha = githubAuth.createClient({
     secret: clientSecret
 });
  
+ console.log(gha.handshake);
+ 
 // Add the route for the GitHub authorization callback 
 // The path must match authorization callback URL for the GitHub application 
 app.get( "/auth", gha.handshake );
