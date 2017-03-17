@@ -1,5 +1,5 @@
 var express = require('express');
-var githubAuth = require('connect-oauth-github');
+//var githubAuth = require('connect-oauth-github');
 
 var port = process.env.PORT || 5000;
 
@@ -9,51 +9,33 @@ var callbackUrl = "https://github-api-v2.herokuapp.com/auth";
 //var port = 5000;
 
 
-var app = express();
+//var app = express();
 
-// Initialize the Express application 
-// The application must have sessions enabled 
-app.use( express.cookieParser() );
-app.use( express.cookieSession({
-    secret: clientSecret
-}));
+var githubOAuth = require('github-oauth')({
+  githubClient: clientId,
+  githubSecret: clientSecret,
+  baseURL: "https://github-api-v2.herokuapp.com/",
+  loginURI: '/login',
+  callbackURI: '/auth',
+  scope: 'user' // optional, default scope is set to user 
+})
  
-// Initialize the GitHub OAuth client 
-var gha = githubAuth.createClient({
-    id: clientId,
-    secret: clientSecret
-});
+require('http').createServer(function(req, res) {
+  if (req.url.match(/login/)) return githubOAuth.login(req, res)
+  if (req.url.match(/callback/)) return githubOAuth.callback(req, res)
+}).listen(port)
  
- throw new Error(gha.handshake.toString());
+githubOAuth.on('error', function(err) {
+  console.error('there was a login error', err)
+})
  
-// Add the route for the GitHub authorization callback 
-// The path must match authorization callback URL for the GitHub application 
-app.get( "/auth", gha.handshake );
+githubOAuth.on('token', function(token, serverResponse) {
+  console.log('here is your shiny new github oauth token', token)
+  serverResponse.end(JSON.stringify(token))
+})
  
-// Create a route which requires authorization 
-app.get( "/required", gha.authorize, function( request, response ) {
-    var accessToken = gha.users[ request.sessionID ].accessToken;
-    response.send( "Your access token is " + accessToken );
-});
- 
-// Create a route with optional authorization 
-app.get( "/optional", function( request, response ) {
-    gha.isAuthorized( request, function( error, isAuthorized ) {
-        if ( error ) {
-            response.send( 500 );
-        }
- 
-        var name = isAuthorized ?
-            gha.users[ request.sessionID ].accessToken :
-            "anonymous";
- 
-        response.send( "Hello, " + name );
-    });
-});
- 
-// Start listening for requests 
-//app.listen( 5000 );
- 
+// now go to http://localhost/login 
+/*  
 app.configure(function() {
  app.use('/', express.static(__dirname + '/public/'));
-}).listen(port);
+}).listen(port); */
