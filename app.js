@@ -9,7 +9,7 @@ var callbackUrl = "https://github-api-v2.herokuapp.com/auth";
 //var port = 5000;
 
 
-//var app = express();
+var app = express();
 
 var githubOAuth = require('github-oauth')({
   githubClient: clientId,
@@ -32,6 +32,10 @@ githubOAuth.on('error', function(err) {
 githubOAuth.on('token', function(token, serverResponse) {
   console.log('here is your shiny new github oauth token', token)
   serverResponse.end(JSON.stringify(token))
+})
+
+app.configure(function() {
+ app.use('/', express.static(__dirname + '/public/'));
 })
  
 // now go to http://localhost/login 
