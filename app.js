@@ -8,10 +8,35 @@ var clientSecret = "7a098cf4de2e6fea12f70a16f1388061c7c22ae9";
 var callbackUrl = "https://github-api-v2.herokuapp.com/auth";
 //var port = 5000;
 
-
-//var app = express();
+var app = express();
 
 var githubOAuth = require('github-oauth')({
+  githubClient: clientId,
+  githubSecret: clientSecret,
+  baseURL: "https://github-api-v2.herokuapp.com/",
+  loginURI: '/login',
+  callbackURI: '/auth',
+  scope: 'user' // optional, default scope is set to user 
+})
+
+app.get('/auth', function (req, res) {
+   return githubOAuth.callback(req, res)
+});
+
+app.get('/login', function (req, res) {
+   return githubOAuth.login(req, res)
+});
+
+githubOAuth.on('error', function(err) {
+  console.error('there was a login error', err)
+})
+ 
+githubOAuth.on('token', function(token, serverResponse) {
+  console.log('here is your shiny new github oauth token', token)
+  res.send(JSON.stringify(token))
+})
+
+/* var githubOAuth = require('github-oauth')({
   githubClient: clientId,
   githubSecret: clientSecret,
   baseURL: "https://github-api-v2.herokuapp.com/",
@@ -32,11 +57,11 @@ githubOAuth.on('error', function(err) {
 githubOAuth.on('token', function(token, serverResponse) {
   console.log('here is your shiny new github oauth token', token)
   serverResponse.end(JSON.stringify(token))
-})
+}) */
 
- 
+ 		
 // now go to http://localhost/login 
-/*  
+
 app.configure(function() {
  app.use('/', express.static(__dirname + '/public/'));
-}).listen(port); */
+}).listen(port); 
