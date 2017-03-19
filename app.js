@@ -33,7 +33,7 @@ githubOAuth.on('error', function(err) {
  
 githubOAuth.on('token', function(token, serverResponse) {
   console.log('here is your shiny new github oauth token', token)
-  res.send(JSON.stringify(token))
+  serverResponse.send(JSON.stringify(token))
 })
 
 /* var githubOAuth = require('github-oauth')({
