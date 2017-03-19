@@ -22,7 +22,7 @@ var githubOAuth = require('github-oauth')({
  
 require('http').createServer(function(req, res) {
   if (req.url.match(/login/)) return githubOAuth.login(req, res)
-  if (req.url.match(/callback/)) return githubOAuth.callback(req, res)
+  if (req.url.match(/auth/)) return githubOAuth.callback(req, res)
 }).listen(port)
  
 githubOAuth.on('error', function(err) {
