@@ -1,5 +1,5 @@
 (function() {
-	 checkCookie(userName);
+	 checkCookie();
 	 $(".hide").hide();
 	 $(".getjson").on('click', function(){
 		delOldRepos();
@@ -21,16 +21,15 @@
 		} else {
 			alert('Please enter username for GitHub!');
 		}
-		return userName;
 	});	
 	
 	/**
 	 * Check Sign in with GitHub.
 	 */
-	function checkCookie(userName){
+	function checkCookie(){
     var username = $.cookie("user_session");
     if (username != undefined) {
-		console.log("Welcome again " + userName);
+		console.log("Welcome again ");
 		$("#sign").hide();
 		} 
 	}
