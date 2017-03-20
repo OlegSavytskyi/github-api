@@ -1,6 +1,5 @@
 (function() {
 	 checkCookie();
-	 $(".sign").hide();
 	 $(".hide").hide();
 	 $(".getjson").on('click', function(){
 		delOldRepos();
@@ -29,10 +28,10 @@
 	 */
 	function checkCookie() {
     var username = $.cookie("user_session");
-    if (username != undefined) {
+    if (username != "" || username != undefined) {
 		console.log("Welcome again ");
 		$(".sign").hide();
-		} else {
+		}else {
 			$(".sign").show();
 		}
 	}
