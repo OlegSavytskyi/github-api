@@ -27,7 +27,7 @@
 	/**
 	 * Check Sign in with GitHub.
 	 */
-	function checkCookie(){
+	function checkCookie(userName){
     var username = $.cookie("user_session");
     if (username != undefined) {
 		console.log("Welcome again " + userName);
