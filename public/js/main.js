@@ -1,5 +1,4 @@
 (function() {
-	 signIn();
 	 $(".hide").hide();
 	 $(".getjson").on('click', function(){
 		delOldRepos();
