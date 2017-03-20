@@ -37,11 +37,13 @@ githubOAuth.on('token', function(token, serverResponse) {
   console.log('here is your shiny new github oauth token', token)
   //serverResponse.cookie('connect.sess', token);
   //var cookie = token.cookies.cookieName;
-  serverResponse.cookie('user_session', JSON.stringify(token));
+  serverResponse.cookie('user_session', JSON.stringify(token).access_token);
   serverResponse.redirect('https://github-api-v2.herokuapp.com/');
   //serverResponse.send(JSON.stringify(token))
   //serverResponse.cookie('connect.sess', JSON.stringify(token));
 })
+
+22access_token
 
 /* var githubOAuth = require('github-oauth')({
   githubClient: clientId,
