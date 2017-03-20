@@ -3,6 +3,10 @@ body {
 	padding: 20px;
 }
 
+.sing {
+	display: none;
+}
+
 .blockIssue {
 	width: 60%;
 	height: auto;

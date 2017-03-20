@@ -26,11 +26,13 @@
 	/**
 	 * Check Sign in with GitHub.
 	 */
-	function checkCookie() {
+	function checkCookie(){
     var username = $.cookie("user_session");
     if (username != undefined) {
 		console.log("Welcome again ");
-		$(".sign").hide();
+		
+		} else {
+			$(".sign").attr('display', 'inline-block');
 		}
 	}
 	
