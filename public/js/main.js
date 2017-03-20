@@ -30,7 +30,7 @@
     var username = $.cookie("user_session");
     if (username != undefined) {
 		console.log("Welcome again ");
-		$("#sign").attr('display', 'none');
+		$("#sign").hide();
 		} 
 	}
 	
