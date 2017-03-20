@@ -1,4 +1,5 @@
 (function() {
+	 checkCookie();
 	 $(".hide").hide();
 	 $(".getjson").on('click', function(){
 		delOldRepos();
@@ -23,22 +24,15 @@
 	});	
 	
 	/**
-	 * Sign in with GitHub.
+	 * Check Sign in with GitHub.
 	 */
-	/* function signIn (){
-		$(".signin").on('click', function(){
-			//alert('Sorry, this function is under development!');
-			$.get('https://github.com/login/oauth/authorize?client_id=6debf385832bd698f1d1',
-				function(data){
-				if (data.success) {
-					console.log('all ok');
-				} else {
-					console.log('error');
-				}
-			}, "json");
-			return false;
-		});	
-	}; */
+	function checkCookie() {
+    var username = $.cookie("user_session");
+    if (username != "") {
+		console.log("Welcome again ");
+		$(".sign").hide();
+		} 
+	}
 	
 	/**
 	 * Show issues of the chosen project(repository).
