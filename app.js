@@ -30,10 +30,14 @@ app.get('/login', function (req, res) {
 githubOAuth.on('error', function(err) {
   console.error('there was a login error', err)
 })
+
+app.use(express.cookieParser());
  
 githubOAuth.on('token', function(token, serverResponse) {
   console.log('here is your shiny new github oauth token', token)
-  serverResponse.cookie('connect.sess', token);
+  //serverResponse.cookie('connect.sess', token);
+  var cookie = token.cookies.cookieName;
+  serverResponse.cookie('user_session', cookie);
   serverResponse.redirect('https://github-api-v2.herokuapp.com/');
   //serverResponse.send(JSON.stringify(token))
   //serverResponse.cookie('connect.sess', JSON.stringify(token));
