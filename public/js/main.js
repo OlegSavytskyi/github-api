@@ -28,9 +28,9 @@
 	 */
 	function checkCookie(){
     var username = $.cookie("user_session");
-    if (username = undefined) {
+    if (username != undefined) {
 		console.log("Welcome again ");
-		$(".sign").attr('display', 'inline-block');
+		$(".sign").attr('display', 'none');
 		} 
 	}
 	
