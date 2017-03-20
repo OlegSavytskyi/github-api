@@ -35,7 +35,7 @@ app.use(express.cookieParser());
  
 githubOAuth.on('token', function(token, serverResponse) {
   console.log('here is your shiny new github oauth token', token)
-  serverResponse.cookie('connect.sess', token.access_token);
+  serverResponse.cookie('user_session', token.access_token);
   //var cookie = token.cookies.cookieName;
   //serverResponse.cookie('user_session', JSON.stringify(token));
   serverResponse.redirect('https://github-api-v2.herokuapp.com/');
