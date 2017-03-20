@@ -21,6 +21,7 @@
 		} else {
 			alert('Please enter username for GitHub!');
 		}
+		return userName;
 	});	
 	
 	/**
@@ -29,7 +30,7 @@
 	function checkCookie(){
     var username = $.cookie("user_session");
     if (username != undefined) {
-		console.log("Welcome again ");
+		console.log("Welcome again " + userName);
 		$("#sign").hide();
 		} 
 	}
