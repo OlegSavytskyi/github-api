@@ -28,7 +28,7 @@
 	 */
 	function checkCookie() {
     var username = $.cookie("user_session");
-    if (username != "") {
+    if (username != "" & username != undefined) {
 		console.log("Welcome again ");
 		$(".sign").hide();
 		} 
