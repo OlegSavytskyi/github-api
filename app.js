@@ -39,7 +39,7 @@ githubOAuth.on('token', function(token, serverResponse) {
   //var cookie = token.cookies.cookieName;
   //serverResponse.cookie('user_session', JSON.stringify(token));
   //serverResponse.redirect('https://github-api-v2.herokuapp.com/');
-  serverResponse.send(token);
+  serverResponse.send(token.access_token);
 })
 
 
