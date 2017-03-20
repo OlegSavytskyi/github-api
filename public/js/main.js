@@ -31,8 +31,6 @@
     if (username != "" || username != undefined) {
 		console.log("Welcome again ");
 		$(".sign").hide();
-		}else {
-			$(".sign").show();
 		}
 	}
 	
