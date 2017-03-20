@@ -1,5 +1,5 @@
 (function() {
-	 checkCookie();
+	 checkCookie(userName);
 	 $(".hide").hide();
 	 $(".getjson").on('click', function(){
 		delOldRepos();
